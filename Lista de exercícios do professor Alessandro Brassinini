@@ -1,0 +1,12 @@
+#include"stdio.h"
+//Lista de exercicios
+//Autor: Manoel Emerenciano Neto
+//1º questão
+int main()
+{
+    float minhaidade = 18;
+    minhaidade = 18/2;
+    printf("%f \n", minhaidade);
+}
+
+

@@ -1,14 +1,18 @@
 #include"stdio.h"
 //Lista de exercicios
 //Autor: Manoel Emerenciano Neto
-//Versão do GCC:20.03
-//Versão do windows: 10 pro
+//Versão do GCC: 20.03
+//Versão do Windows:10 pro
 //1º questão
 int main()
 {
     float minhaidade = 18;
-    minhaidade = 18/2;
     printf("%f \n", minhaidade);
+    printf("Aperte qualquer tecla para dividir o valor... \n");
+    getch();
+    printf("%f \n", minhaidade = 18/2);
+    return 0;
+
 }
 
 #include"stdio.h"
@@ -16,8 +20,12 @@ int main()
 int main()
 {
     int minhaidade = 18;
-    minhaidade = 18*2;
     printf("%d \n", minhaidade);
+    printf("Aperte qualquer tecla para dobrar o valor... \n");
+    getch();
+    printf("%d \n", minhaidade = 18*2);
+    return 0;
+
 }
 
 

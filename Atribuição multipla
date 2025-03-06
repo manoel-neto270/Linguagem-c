@@ -1,0 +1,12 @@
+#include"stdio.h"//função printf()
+int main ()
+{
+    //Declarando uma variável local.
+   int ajb, manoel;
+   ajb = manoel = 20;
+   manoel = 50;
+   //printf para valores
+   printf("ajb: %d, manoel: %d \n", ajb, manoel);
+   return 0;
+
+}

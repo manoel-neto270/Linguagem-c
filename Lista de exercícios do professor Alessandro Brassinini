@@ -9,4 +9,13 @@ int main()
     printf("%f \n", minhaidade);
 }
 
+#include"stdio.h"
+//2º questão
+int main()
+{
+    int minhaidade = 18;
+    minhaidade = 18*2;
+    printf("%d \n", minhaidade);
+}
+
 

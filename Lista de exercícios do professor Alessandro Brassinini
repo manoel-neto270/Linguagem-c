@@ -1,6 +1,8 @@
 #include"stdio.h"
 //Lista de exercicios
 //Autor: Manoel Emerenciano Neto
+//Versão do GCC:20.03
+//Versão do windows: 10 pro
 //1º questão
 int main()
 {

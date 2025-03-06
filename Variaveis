@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main()
+{
+    int inteiro = 65;
+    double vardouble = 215.17;
+
+    //caracteres de formatação
+    // Apresentar a variavel inteiro de diferentes formas
+
+    printf ("\n Valor da variavel inteiro (inteiros):   %d", inteiro);
+    printf ("\n Valor da variavel inteiro (hexadecimal): %x", inteiro);
+    printf ("\n Valor da variavel inteiro (octal): %o",inteiro);
+    printf ("\n Valor da variavel inteiro (flutuante): %f", inteiro);
+
+    //Tabela ASCI
+
+    printf ("\n Valor da variavael inteiro (caracter): %c", inteiro);
+    printf ("\n Valor da variavel inteiro (flutuante): %f", vardouble);
+
+    return 0;
+}

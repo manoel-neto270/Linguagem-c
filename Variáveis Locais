@@ -1,0 +1,25 @@
+// Boas praticas
+// Sistema operacional: Windows 10 pro
+// Versão GCC: 20.03
+// Data: 06/03/2025
+// Autor: Manoel Emerenciano Neto
+#include "stdio.h" //função printf()
+
+int main ()
+{
+    // Declarando uma variavel local
+
+    int meuInteiro;
+    meuInteiro= 20;
+    double meuDouble=50.17;
+    char meuChar='a';
+    float meuFloat= 15.20;
+
+    //printf para exibir valores
+    printf("%d", meuInteiro);
+    printf("%f", meuFloat);
+    printf("%c", meuChar);
+    printf("%f", meuDouble);
+    return 0;
+
+}

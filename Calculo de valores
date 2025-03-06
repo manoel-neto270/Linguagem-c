@@ -1,0 +1,15 @@
+#include"stdio.h"
+#include"conio.h"
+int main()
+{
+ int nvalores = 0;
+
+ //Calculando valores
+ nvalores = (6+10) + (4*6);
+ printf("%d \n", nvalores);
+ printf("tecle algo para sair...");
+ //Aguarda o pressionamento de uma tecla
+ getch();
+ return 0;
+
+}

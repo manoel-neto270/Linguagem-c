@@ -1,0 +1,34 @@
+#include"stdio.h"//função printf()
+//Criando uma variável global
+int meuinteiroglobal=500;
+
+//Criando um procedimento
+void meuProcedimento()
+
+{
+    printf("%d", meuinteiroglobal);
+    meuinteiroglobal++;
+//OU
+//meuinteiroglobal++
+}
+
+int main()
+{
+//Declarando variável local
+//int meuInteiro;
+// meuInteiro=30
+    int Meuinteiro = 50;
+    double meuDobule = 15.50;
+    char meuChar = 'c';
+    float meufloat = 9.70;
+
+    printf("%d \n", Meuinteiro);
+    printf("%f \n", meuDobule);
+    printf("c% \n", meuChar);
+    printf("%f \n", meufloat);
+
+    meuProcedimento();
+    printf("\n");
+    printf("%d", meuinteiroglobal);
+    return 0;
+}

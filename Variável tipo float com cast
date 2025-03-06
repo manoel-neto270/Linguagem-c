@@ -1,0 +1,12 @@
+#include"stdio.h"
+#include"stdlib.h"
+int main ()
+{
+    printf("Trabalhando com variável float \n");
+    float meufloat;
+    //Forçando um cast nos valores
+    //Neste caso tenho somente valores inteiros
+    meufloat = 39/7;
+    printf("%f \n", meufloat);
+
+}

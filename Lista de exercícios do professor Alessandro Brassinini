@@ -1,4 +1,5 @@
-#include"stdio.h"
+#include<stdio.h>
+#include<locale.h>
 //Lista de exercicios
 //Autor: Manoel Emerenciano Neto
 //Versão do GCC: 20.03
@@ -6,26 +7,195 @@
 //1º questão
 int main()
 {
-    float minhaidade = 18;
-    printf("%f \n", minhaidade);
-    printf("Aperte qualquer tecla para dividir o valor... \n");
-    getch();
-    printf("%f \n", minhaidade = 18/2);
-    return 0;
+    setlocale(LC_ALL, "Portuguese");
+    float num, metade;
 
+    printf("Entre com um número");
+    scanf("%f", &num);
+
+    metade = num / 2;
+    printf("\nA metade do número é: %f\n", metade);
 }
 
-#include"stdio.h"
+
+
+#include<stdio.h>
+#include<locale.h>
 //2º questão
 int main()
 {
-    int minhaidade = 18;
-    printf("%d \n", minhaidade);
-    printf("Aperte qualquer tecla para dobrar o valor... \n");
-    getch();
-    printf("%d \n", minhaidade = 18*2);
-    return 0;
+    setlocale(LC_ALL, "Portuguese");
+    float num, dobro;
 
+    printf("Entre com um número");
+    scanf("%f", &num);
+
+    dobro = num * 2;
+    printf("\nO dobro do número é: %f\n", dobro);
+}
+
+#include <stdio.h>
+#include <locale.h>
+//3º questão
+int main()
+{
+    setlocale(LC_ALL, "Portuguese");
+    float velocidade, distancia, tempo;
+
+    printf("Entre com a distância:");
+    scanf("%f", &distancia);
+    printf("Entre com o tempo:");
+    scanf("%f", &tempo);
+    velocidade = distancia / tempo;
+    printf("\nSua velocidade média é: %f\n", velocidade);
 }
 
 
+#include <stdio.h>
+#include <locale.h>
+//4º questão
+int main()
+{
+    setlocale(LC_ALL, "Portuguese");
+    float area, base, altura;
+
+    printf("Entre com a base:");
+    scanf("%f", &base);
+    printf("Entre com a altura:");
+    scanf("%f", &altura);
+    area = (base * altura) / 2;
+    area =
+    printf("\nA área do triângulo é: %f\n", area);
+}
+
+
+#include <stdio.h>
+#include <locale.h>
+//5º questão
+int main()
+{
+    setlocale(LC_ALL, "Portuguese");
+    float distancia, preco, consumo, total;
+
+    printf("Qual a distância a ser percorrida?");
+    scanf("%f", &distancia);
+    printf("Qual o consumo médio do seu veículo?:");
+    scanf("%f", &consumo);
+    printf("Qual o preço do combustível?");
+    scanf("%f", &preco);
+    total = distancia / consumo * preco;
+    printf("\nO valor a ser gasto é de R$ %.2f\n", total);
+}
+
+
+
+#include <stdio.h>
+#include <locale.h>
+//6º questão
+int main()
+{
+    setlocale(LC_ALL, "Portuguese");
+    float salario, aumento, porcentagem;
+    printf("Qual salário?");
+    scanf("%f", &salario);
+    printf("Qual a porcentagem do aumento?:");
+    scanf("%f", &porcentagem);
+    aumento = salario * porcentagem / 100;
+    printf("\nO aumento vai ser de: R$ %.2f\n", aumento);
+    printf("\nO novo salário é de R$ %.2f\n", salario + aumento);
+}
+
+#include <stdio.h>
+#include <locale.h>
+// 7º questão
+int main()
+{
+    setlocale(LC_ALL, "Portuguese");
+    int a, b, c , d, aux;
+
+    printf("Primeira variável:");
+    scanf("%d", &a);
+    printf("Segunda variável:");
+    scanf("%d", &b);
+    c = a;
+    d = b;
+
+    //Método 1
+    aux = a;
+    a = b;
+    b = aux;
+    printf("\nMétodo 1:");
+    printf("\n\tA = %d \t b = %d\n", a , b);
+
+    //Método 2
+    c = c + d;
+    d = c - d;
+    c = c - d;
+    printf("\nMétodo 2:");
+    printf("\n\tA = %d \t b = %d\n", c , d);
+
+}
+
+#include <stdio.h>
+#include <locale.h>
+// 8º questão
+int main()
+{
+    setlocale(LC_ALL, "Portuguese");
+    int valor, nota10, nota5, nota1;
+    printf("Qual o valor a sacar?");
+    scanf("%d", &valor);
+    nota10 = valor / 10;
+    valor = valor % 10;
+    nota5 = valor / 5;
+    nota1 = valor % 5;
+    printf("\nVocê irá precisar");
+    printf("\n\t %d x R$ 10,00", nota10);
+    printf("\n\t %d x R$ 5,00", nota5);
+    printf("\n\t %d x R$ 1,00", nota1);
+
+
+
+}
+
+#include <stdio.h>
+#include <locale.h>
+// 9º questão
+int main()
+{
+    setlocale(LC_ALL, "Portuguese");
+    float largura, comprimento, area;
+    printf("Entre com a largura do terreno:");
+    scanf("%f", &largura);
+    printf("Entre com o comprimento do terreno:");
+    scanf("%f", &comprimento);
+
+    area= largura * comprimento;
+
+    printf("\nA área do terreno é de %2.f\n", area);
+
+
+
+
+
+}
+#include <stdio.h>
+#include <locale.h>
+10º questão
+int main()
+{
+    setlocale(LC_ALL, "Portuguese");
+    int paes, broas;
+    float total, poupanca;
+    printf("Quantidade de pães vendidos:");
+    scanf("%f", &paes);
+    printf("Quantidade de broas vendidas");
+    scanf("%f", &broas);
+
+    total = paes * 0.12 + broas * 1.50;
+    poupanca = total * 0.10;
+    printf("\nTotal arrecadado: R$ %2.f", total);
+    printf("\nPoupança: R$ %2.f", poupanca);
+
+
+}

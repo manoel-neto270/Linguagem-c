@@ -181,7 +181,7 @@ int main()
 }
 #include <stdio.h>
 #include <locale.h>
-10º questão
+//10º questão
 int main()
 {
     setlocale(LC_ALL, "Portuguese");

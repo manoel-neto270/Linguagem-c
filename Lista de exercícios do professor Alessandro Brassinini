@@ -277,4 +277,172 @@ int main (){
 
     }
 
+#include <stdio.h>
+#include <locale.h>
+//16º Questão
+int main (){
+    setlocale( LC_ALL, "Portuguese");
+    float celsius, fahrenheit;
+    printf("Qual a temperatura em graus celsius?");
+    scanf("%f", &celsius);
+    fahrenheit = (celsius * 9 / 5) + 32;
+    printf("\nEsta temperatura equivale a %f graus Fahrenheit\n", fahrenheit);
+    return 0;
+}
+
+#include <stdio.h>
+#include <locale.h>
+//17º questão
+int main (){
+    setlocale( LC_ALL, "Portuguese");
+    float hora_normal, hora_extra, bruto, liquido;
+    printf("Qual o total de horas normais trabalhadas?");
+    scanf("%f", &hora_normal);
+    printf("Qual o total de horas extras trabalhadas?");
+    scanf("%f", &hora_extra);
+    bruto = hora_normal * 10 + hora_extra * 15;
+    liquido = bruto * 0.9;
+    printf("\nO salário bruto é de R$ %2.f\n", bruto);
+    printf("\nO salário liquído é de R$ %2.f\n", liquido);
+    return 0;
+
+}
+
+#include <stdio.h>
+#include <locale.h>
+//18º questão
+int main (){
+    setlocale( LC_ALL, "Portuguese");
+    float total;
+    int frangos;
+    printf("Quantos frangos tem na granja");
+    scanf("%d", &frangos);
+    total = frangos * 4 + frangos * 7;
+    printf("\nO gasto total é R$ %2.f\n", total);
+    return 0;
+
+
+}
+
+#include <stdio.h>
+#include <locale.h>
+//19º questão
+int main (){
+    setlocale( LC_ALL, "Portuguese");
+    float alt_predio, som_predio, alt_pessoa, som_pessoa;
+    printf("Qual a sua altura?");
+    scanf("%f", &alt_pessoa);
+    printf("Quanto mede a sua sombra");
+    scanf("%f", &som_pessoa );
+    printf("Quanto mede a sombra do prédio");
+    scanf("%f", &som_predio);
+    alt_predio = alt_pessoa * som_predio / som_pessoa;
+    printf("\nA altura do prédio mede %2.f metros\n", alt_predio);
+    return 0;
+
+
+}
+
+#include <stdio.h>
+#include <locale.h>
+#define PI 3.1415
+//20º questão
+int main (){
+    setlocale( LC_ALL, "Portuguese");
+    float raio, altura, area, volume;
+    printf("Entre com o raio do cilindro"),
+    scanf("%f", &raio);
+    printf("Entre com a altura do cilindro");
+    scanf("%f", &altura);
+    area = PI * raio * raio;
+    volume = area * altura;
+    printf("\nO volume deste cilindro é: %f\n", volume);
+    return 0;
+
+}
+#include <stdio.h>
+#include <locale.h>
+//21º questão
+int main (){
+    setlocale( LC_ALL, "Portuguese");
+    int n1, n2, n3, total;
+    printf("Entre com os três números inteiros");
+    scanf("%d %d %d", &n1, &n2, &n3);
+    total = n1 * n2 * n3;
+    printf("\nO produto dos três números é: %d\n", total);
+    return 0;
+
+
+}
+
+#include <stdio.h>
+#include <locale.h>
+//22º questão
+int main (){
+    setlocale( LC_ALL, "Portuguese");
+    float nota1, nota2, media;
+    printf("Entre com as notas"),
+    scanf("%f %f", &nota1, &nota2);
+    media = (nota1 * 2 + nota2 * 3) / (2+3);
+    printf("\nMédia é: %f\n", media);
+    return 0;
+
+
+
+
+}
+
+#include <stdio.h>
+#include <locale.h>
+//23º questão
+int main (){
+    setlocale( LC_ALL, "Portuguese");
+    float quilos, gramas;
+    printf("Entre com o peso em quilogramas"),
+    scanf("%f", &quilos);
+    gramas = quilos * 1000;
+    printf("\nO peso em gramas é: %f\n", gramas);
+    return 0;
+
+}
+
+#include <stdio.h>
+#include <locale.h>
+//24º questão
+int main (){
+    setlocale( LC_ALL, "Portuguese");
+    float base_maior, base_menor, altura, area;
+    printf("Entre com a medida da base menor do trapézio");
+    scanf("%f", &base_menor);
+    printf("Entre com a medida da base maior do trapézio");
+    scanf("%f", &base_maior);
+    printf("Entre com a medida da altura do trapézio");
+    scanf("%f", &altura);
+    area = (base_menor + base_maior) * altura / 2;
+    printf("\nA área do trapézio é: %f\n", area);
+    return 0;
+
+
+}
+
+#include <stdio.h>
+#include <locale.h>
+#include <math.h>
+//25º questão
+int main (){
+    setlocale( LC_ALL, "Portuguese");
+    float catB, catC, hip;
+    printf("Entre com a medida do primeiro cateto:"),
+    scanf("%f", &catB);
+    printf("Entre com a medida do segundo cateto");
+    scanf("%f", &catC);
+    hip = sqrt(catB * catB + catC * catC);
+    printf("\nA medida da hipotenusa é %2.f\n", hip);
+    return 0;
+
+
+
+}
+
+
 

@@ -198,4 +198,83 @@ int main()
     printf("\nPoupança: R$ %2.f", poupanca);
 
 
+#include <stdio.h>
+#include <locale.h>
+//11º questão
+int main (){
+    setlocale( LC_ALL, "Portuguese");
+    float nota1, nota2, nota3, media;
+    printf("Digite a nota 1:");
+    scanf("%f", &nota1);
+    printf("Digite a nota 2:");
+    scanf("%f", &nota2);
+    printf("Digite a nota 3:");
+    scanf("%f", &nota3);
+    media = (nota1 + nota2 + nota3 * 3) / 6;
+    printf("\nSua média é de %f\n", media);
 }
+
+#include <stdio.h>
+#include <locale.h>
+//12º questão
+int main (){
+    setlocale( LC_ALL, "Portuguese");
+    int total, pequena, media, grande;
+    printf("Quantidade de camisetas pequenas");
+    scanf("%d", &pequena);
+    printf("Quantidade de camisetas médias");
+    scanf("%d", &media);
+    printf("Quantidade de camisetas grandes");
+    scanf("%d", &grande);
+    total = 10 * pequena + 12 * media + 15 * grande;
+    printf("\nO total de camisetas vendidas é de R$ %d,00\n", total);
+    }
+
+#include <stdio.h>
+#include <locale.h>
+//13º questão
+int main (){
+    setlocale( LC_ALL, "Portuguese");
+    float x1, y1, x2, y2, dist;
+    printf("Entre com as coordenadas do primeiro ponto:");
+    scanf("%f", &x1, &y1);
+    printf("Entre com as coordenadas do segundo ponto:");
+    scanf("%f", &x2, &y2);
+    dist = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
+    dist = sqrt(dist);
+    printf("\nA distância é de: %f\n", dist);
+    }
+
+#include <stdio.h>
+#include <locale.h>
+//14º questão
+int main (){
+    setlocale( LC_ALL, "Portuguese");
+    float salario, aumento, imposto;
+    printf("Entre com o salário:");
+    scanf("%f", &salario);
+    aumento = salario * 0.15;
+    imposto = (salario + aumento) * 0.08;
+    printf("\nSalário original R$ %f\n", salario);
+    printf("\nSalário com o aumento R$ %f\n", salario + aumento);
+    printf("\nImposto R$ %f\n", imposto);
+
+    return 0;
+    }
+
+#include <stdio.h>
+#include <locale.h>
+#define pi 3.1415
+//15º questão
+int main (){
+    setlocale( LC_ALL, "Portuguese");
+    float raio , area;
+    printf("Qual o raio do circulo?");
+    scanf("%f", &raio);
+    area = pi * raio * raio;
+    printf("\nA área do circulo é de: %f\n",area );
+    return 0;
+
+    }
+
+

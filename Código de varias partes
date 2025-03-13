@@ -1,0 +1,28 @@
+main.c
+#include <stdio.h>
+#include <stdlib.h>
+#include "poligonos.h"
+
+int main()
+{
+  //system("cls");
+    printf("%.2.f\n", calcAreaRetangulo (10,10));
+    printf("%.2f\n", calcPerimetroTriangulo (20, 10, 5));
+    return 0;
+}
+poligonos.h
+float calcAreaRetangulo (float b, float a);
+float calcPerimetroTriangulo(float a, float b,float c);
+poligonos.c
+#include "poligonos.h"
+
+float calcAreaRetangulo(float b, float a)
+{
+    return b*a;
+
+}
+
+float calcPerimetroTriangulo (float a, float b, float c)
+{
+  return a + b + c;
+}

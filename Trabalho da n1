@@ -41,20 +41,25 @@ int main (int args, char * arg[]);
     printf("\nSegunda fracao");
     scanf("%d",&o); //denominador 2
 
-    soma_das_fracoes(a, e , i, o);
+void soma_das_fracoes(int a, int e, int i, int o)
     {
     int (z, x);
-    z = a * o
-    x = e * i
-    simplificacao_das_fracoes()
+    z = a * o + e * i
+    x = e * o
+    simplificacao_das_fracoes (z, x);
+    }
+void subtracao_das_fracoes(int a ,int e,int i, int o);
+    {
+    int (z, x);
+    z = a * o - e * i
+    x = e * o
+    simplificacao_das_fracoes(z,x);
     }
 
-
-
-
-
-}
     
-    
-    
+
+
+
+
+
 }

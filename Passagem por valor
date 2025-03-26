@@ -1,0 +1,17 @@
+#include <stdio.h>
+void incrementar(int x)
+{
+    x = x + 1;
+    printf("Dentro da funcao: x = %d\n", x);
+
+}
+
+int main ()
+{
+    int num = 5;
+    printf("Antes da chamada da funcao:num = %d\n", num);
+    incrementar(num);
+    printf("Depois da chamada da funcao: num = %d\n", num);
+    return 0;
+
+}

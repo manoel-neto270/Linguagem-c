@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+//colocando as variaveis globais
+void obter_fracoes ();
+
+void soma_das_fracoes (int a, int e, int i, int o);
+void subtracao_das_fracoes (int a, int e,int i, int o);
+void multiplicacao_das_fracoes (int a, int e, int i, int o);
+void divisao_das_fracoes (int a, int e, int i, int o);
+void simplificacao_das_fracoes (int r, int t);
+
+int w,x,y,z
+int main (int args, char * arg[]);
+{
+    char r;
+    while (1);
+    
+}
+{
+    //Limpar a tela
+    system("CLS")
+    //Valor das contas
+    printf("1.Valor da soma\n");
+    printf("2.Valor da subtração\n");
+    printf("3.Valor da multiplicação\n");
+    printf("4.Valor da divisão\n");
+    printf("9.Término das frações e suas contas");
+    r = getch();
+    case '1' (soma_das_fracoes), break;
+    case '2' (subtracao_das_fracoes), break;
+    case '3' (multiplicacao_das_fracoes), break;
+    case '4' (divisao_das_fracoes), break;
+    
+    printf("\nPrimeira fração");
+    scanf("%d", &a); //numerador 1
+    printf("\nPrimeira fração");
+    scanf("%d", &e); //denominador 1
+    printf("\nSegunda fração");
+    scanf("%d", &)
+    
+    
+    
+    
+}

@@ -1,65 +1,127 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
-//colocando as variaveis globais
-void obter_fracoes ();
+//Manoel Emerenciano Neto
+//Trabalho da n1 de ALGORITMOS I, primeira fase
+//Trabalho orientado pelo professor Alessandro Brassanini
 
-void soma_das_fracoes (int a, int e, int i, int o);
-void subtracao_das_fracoes (int a, int e,int i, int o);
-void multiplicacao_das_fracoes (int a, int e, int i, int o);
-void divisao_das_fracoes (int a, int e, int i, int o);
-void simplificacao_das_fracoes (int r, int t);
 
-int w,x,y,z
-int main (int args, char * arg[]);
-{
+
+//Atribuindo as variaveis globais
+void obter_fracoes();
+void soma_das_fracoes(int a, int e, int i, int o);
+void subtracao_das_fracoes(int a, int e, int i, int o);
+void multiplicacao_das_fracoes(int a, int e, int i, int o);
+void divisao_das_fracoes(int a, int e, int i, int o);
+int simplificacao_das_fracoes(int r, int t);
+
+// Variáveis globais para armazenar as frações
+int w, x, y, z;
+
+int main() {
     char r;
-    while (1);
 
+    do {
+        // Limpar a tela
+        system("CLS");
+
+        // Mostrar o menu
+        printf("1. Valor da soma\n");
+        printf("2. Valor da subtração\n");
+        printf("3. Valor da multiplicação\n");
+        printf("4. Valor da divisão\n");
+        printf("9. Término das frações e suas contas\n");
+        printf("Qual opção deseja escolher? ");
+        scanf("%c", &r);
+        while (getchar() != '\n');
+
+        if (r == '9') {
+            printf("Encerrando o programa. Obrigado!\n");
+            break;
+        }
+
+        obter_fracoes();
+
+        switch (r) {
+            case '1': soma_das_fracoes(w, x, y, z); break;
+            case '2': subtracao_das_fracoes(w, x, y, z); break;
+            case '3': multiplicacao_das_fracoes(w, x, y, z); break;
+            case '4': divisao_das_fracoes(w, x, y, z); break;
+            default: printf("Sinto muito, mas a opção não é válida. Por favor, tente novamente.\n");
+        }
+
+        printf("Pressione enter para continuar.");
+        while (getchar() != '\n');
+
+    } while (1);
+
+    return 0;
 }
-{
-    //Limpar a tela
-    system("CLS")
-    //Valor das contas
-    printf("1.Valor da soma\n");
-    printf("2.Valor da subtração\n");
-    printf("3.Valor da multiplicação\n");
-    printf("4.Valor da divisão\n");
-    printf("9.Término das frações e suas contas");
-    r = getch();
-    case '1' (soma_das_fracoes), break;
-    case '2' (subtracao_das_fracoes), break;
-    case '3' (multiplicacao_das_fracoes), break;
-    case '4' (divisao_das_fracoes), break;
 
-    printf("\nPrimeira fração");
-    scanf("%d", &a); //numerador 1
-    printf("\nPrimeira fração");
-    scanf("%d", &e); //denominador 1
-    printf("\nSegunda fração");
-    scanf("%d", &i); //numerador 2
-    printf("\nSegunda fracao");
-    scanf("%d",&o); //denominador 2
+void obter_fracoes() {
+    do {
+        printf("\nColoque o numerador e o denominador da primeira fração: ");
+        scanf("%d %d", &w, &x);
+        while (getchar() != '\n');
+        if (x == 0) printf("Denominador não pode ser zero, por favor, tente novamente.\n");
+    } while (x == 0);
 
-void soma_das_fracoes(int a, int e, int i, int o)
-    {
-    int (z, x);
-    z = a * o + e * i
-    x = e * o
-    simplificacao_das_fracoes (z, x);
+    do {
+        printf("Digite o numerador e denominador da segunda fração: ");
+        scanf("%d %d", &y, &z);
+        while (getchar() != '\n');
+        if (z == 0) printf("Denominador não pode ser zero, por favor, tente novamente.\n");
+    } while (z == 0);
+}
+    //Função de soma das frações
+void soma_das_fracoes(int a, int e, int i, int o) {
+    int num = a * o + i * e;
+    int den = e * o;
+    int mdc = simplificacao_das_fracoes(num, den);
+    num /= mdc;
+    den /= mdc;
+    printf("\nResultado: %d/%d\n", num, den);
+}
+    //Função de subtração das frações
+void subtracao_das_fracoes(int a, int e, int i, int o) {
+    int num = a * o - i * e;
+    int den = e * o;
+    int mdc = simplificacao_das_fracoes(num, den);
+    num /= mdc;
+    den /= mdc;
+    printf("\nResultado: %d/%d\n", num, den);
+}
+    //Função de multiplicação das frações
+void multiplicacao_das_fracoes(int a, int e, int i, int o) {
+    int num = a * i;
+    int den = e * o;
+    int mdc = simplificacao_das_fracoes(num, den);
+    num /= mdc;
+    den /= mdc;
+    printf("\nResultado: %d/%d\n", num, den);
+}
+    //Função de divisão das frações
+void divisao_das_fracoes(int a, int e, int i, int o) {
+    if (i == 0) {
+        printf("\nErro: Divisão feita com zero!\n");
+        return;
     }
-void subtracao_das_fracoes(int a ,int e,int i, int o);
-    {
-    int (z, x);
-    z = a * o - e * i
-    x = e * o
-    simplificacao_das_fracoes(z,x);
+    int num = a * o;
+    int den = e * i;
+    int mdc = simplificacao_das_fracoes(num, den);
+    num /= mdc;
+    den /= mdc;
+    printf("\nResultado: %d/%d\n", num, den);
+}
+    //Função da simplificação das frações
+int simplificacao_das_fracoes(int r, int t) {
+    int mdc, temp_u = r, temp_i = t;
+    if (temp_u < 0) temp_u = -temp_u;
+    if (temp_i < 0) temp_i = -temp_i;
+    while (temp_i != 0) {
+        int temp = temp_i;
+        temp_i = temp_u % temp_i;
+        temp_u = temp;
     }
-
-    
-
-
-
-
-
+    mdc = temp_u;
+    return mdc;
 }

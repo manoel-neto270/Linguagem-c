@@ -76,15 +76,15 @@ simplificar_fracao(n ,d);
 void dividir_fracoes(int x, int y, int u, int v)
 {
 int n, d;
-n = x*v;
-d = y*u;
+n = x*v; //O primeiro numerador multiplica o segundo denominador
+d = y*u; //O primeiro denominador multiplica o segundo numerador
 simplificar_fracao(n ,d);
 }
 //Função auxiliar para calcular o máximo divisor comum
 int mdc(int x, int y)
 {
 int r = 1;
-while (r != 0);
+while (r != 0)
 {
 r = x%y;//Resto da divisão
 x = y;

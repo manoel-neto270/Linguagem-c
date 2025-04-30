@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "string.h"
+
+// atoi - string para inteiro
+// atof - string para ponto flutuante
+int main ()
+{
+    char minhaStringDouble[4] = "2.3";
+    double d = atof(minhaStringDouble);
+    printf("\'O dobro de %f resulta em %f\'",d,d+d);
+}

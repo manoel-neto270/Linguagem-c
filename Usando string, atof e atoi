@@ -11,3 +11,122 @@ int main ()
     double d = atof(minhaStringDouble);
     printf("\'O dobro de %f resulta em %f\'",d,d+d);
 }
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+//Somente exemplo com o atoi
+int main ()
+{
+    char minhaStringDouble[4] = "50";
+    int i = atoi(minhaStringDouble);
+    printf("\'A soma de %d com 10 resulta em %d\'",i,i+10);
+}
+
+#include <stdio.h>
+
+//Contando palavras
+int main ()
+{
+    char texto[200];
+    int i = 0, palavras = 0, em_palavra = 0;
+    printf("Digite uma frase:");
+    fgets(texto, sizeof(texto), stdin);
+
+    //Contando caracteres até encontrar o '\0'
+    while(texto[i] != '\0') {
+        if((texto[i]!= ' ') && (texto[i]!='\n') && (em_palavra==0))
+        {
+        em_palavra = 1;
+        palavras++;
+        } else if(texto[i] == ' '||texto [i]== '\n')
+         {
+         em_palavra = 0;
+         }
+         i++;
+         }
+
+        printf("Quantidade de palavras: %d\n", palavras);
+
+    return 0;
+}
+
+//Contar o número de caracteres
+// de uma string
+//Biblioteca padrão de entrada e saída
+
+#include <stdio.h>
+
+
+int main ()
+{
+    char texto[200];
+    int i = 0, contador = 0;
+    printf("Digite uma frase:");
+    fgets(texto, sizeof(texto), stdin);
+
+    //Contando caracteres até encontrar o '\0'
+    while(texto[i] != '\0') {
+        contador++; //Incrementa o contador
+        i++; //Avança para o próximo caractere
+        }
+    printf("Quantidade de caracteres: %d\n", contador-1);
+    // -1 para ignorar '\n' do fgets
+    return 0;
+
+}
+
+#include <stdio.h>
+//contando vogais
+
+int main ()
+{
+    char texto[100];
+    int i = 0, vogais = 0;
+    printf("Digite uma frase:");
+    fgets(texto, sizeof(texto), stdin);
+
+    //Verificar se é uma vogal
+    while(texto[i] != '\0') {
+        if(texto[i]== 'a' || texto[i] =='e' || texto[i] =='i' || texto[i] =='o' || texto[i] =='u' ||
+        texto[i] =='A' || texto[i] =='E' || texto[i] =='I' || texto[i] =='O' || texto[i] =='U')
+        {
+        vogais ++; //contar as vogais
+        }
+        i++; //percorrer o vetor de char
+    }
+
+        printf("Quantidade de vogais: %d\n", vogais);
+
+    return 0;
+}
+
+
+#include <stdio.h>
+
+//Contar letras em um texto
+int main ()
+{
+    char texto[100], letra;
+    int i = 0, contador = 0;
+    printf("Digite um texto:");
+    fgets(texto, sizeof(texto), stdin);
+
+    printf("Digite a letra para contar:");
+    scanf("%c", &letra);
+
+    while(texto[i] != '\0') {
+    if(texto[i]==letra)
+
+        {
+        contador ++; //contar as vogais
+        }
+        i++; //percorrer o vetor de char
+    }
+
+        printf("Quantidade de letras na frase: %d\n", contador);
+
+    return 0;
+}
+

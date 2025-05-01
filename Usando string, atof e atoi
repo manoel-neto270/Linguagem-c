@@ -105,7 +105,7 @@ int main ()
 
 #include <stdio.h>
 
-//Contar letras em um texto
+//Contar letras de um texto
 int main ()
 {
     char texto[100], letra;
@@ -120,9 +120,9 @@ int main ()
     if(texto[i]==letra)
 
         {
-        contador ++; //contar as vogais
+        contador ++;
         }
-        i++; //percorrer o vetor de char
+        i++; 
     }
 
         printf("Quantidade de letras na frase: %d\n", contador);

@@ -1,0 +1,33 @@
+//Contar números que existem dentro da string
+#include <stdio.h>
+int contarNumeros(char str[])
+{
+    int i = 0, cont = 0;
+
+    while(str[i] != '\0')
+    {
+        if(str[i] >= '0' && str[i] <= '9')
+        {
+            cont++;
+        }
+
+        i++;
+    }
+
+    return cont;
+}
+
+int main()
+{
+    char texto[100];
+
+    printf("Digite uma frase:");
+
+    fgets(texto, sizeof(texto), stdin);
+
+    int qtd = contarNumeros(texto);
+
+    printf("Quantidade de números: %d\n", qtd);
+
+    return 0;
+}

@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <string.h>
+int buscarPalavra(char frase[], char palavra [])
+{
+int i, j, k;
+int tamanhofrase = strlen(frase);
+int tamanhopalavra = strlen(palavra);
+for(i = 0; i<= tamanhofrase - tamanhopalavra; i++)
+{
+    k = i;

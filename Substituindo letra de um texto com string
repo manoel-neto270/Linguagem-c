@@ -1,0 +1,33 @@
+#include <stdio.h>
+void substituir(char texto[], char velho, char novo)
+{
+    int i = 0;
+    while(texto[i] != '\0')
+    {
+        if(texto[i] == velho)
+
+        {
+            texto[i] = novo;
+        }
+        i++;
+    }
+
+}
+
+
+int main()
+{
+    char texto[100], velho, novo;
+    printf("Digite um texto:");
+    fgets(texto, sizeof(texto), stdin);
+    printf("Digite a letra para ser substituida:");
+    scanf("%c", &velho);
+    getchar();
+    printf("Digite o novo caractere:");
+    scanf("%c", &novo);
+    substituir(texto, velho, novo);
+    printf("Texto apos substituicao: %s", texto);
+
+    return 0;
+
+}

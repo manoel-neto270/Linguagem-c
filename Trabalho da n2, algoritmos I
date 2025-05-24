@@ -1,0 +1,64 @@
+/*MANOEL EMERENCIANO NETO
+Trabalho orientado pelo professor ALESSANDRO JOÃO BRASSANINI
+Código feito em linguagem c
+
+#include <stdio.h>   // Biblioteca padrão de entrada e saída (printf, etc)
+#include <stdlib.h>  // Necessária para rand(), srand()
+#include <time.h>    // Necessária para time(), usada no srand()
+
+// Define os limites máximos de produtos e clientes
+#define PRODUTOS 200
+#define CLIENTES 50
+
+// Função auxiliar para gerar número aleatório entre 0 e n-1
+int random(int n) {
+    return rand() % n;
+}
+
+int main() {
+    int i;                        // Variável de controle para os loops
+    int nproduto, ncliente;      // Quantidade de produtos e de clientes do dia
+    int compra[CLIENTES];        // Vetor que guarda qual produto cada cliente comprou
+    float preco[PRODUTOS];       // Vetor com os preços dos produtos
+    float total = 0;             // Variável para armazenar o total das vendas
+    float p;                     // Variável auxiliar para gerar o preço de um produto
+
+    // Inicializa o gerador de números aleatórios com base na hora atual
+    srand((unsigned)time(NULL));
+
+    // Gera a quantidade de produtos (de 1 a 200)
+    nproduto = random(PRODUTOS) + 1;
+
+    // Gera o preço de cada produto aleatoriamente entre R$5,00 e R$100,00
+    for (i = 0; i < nproduto; i++) {
+        p = 5 + random(96);     // Gera número de 5 a 100 (96 = 100 - 5 + 1)
+        preco[i] = p;
+    }
+
+    // Gera a quantidade de clientes (de 1 a 50)
+    ncliente = random(CLIENTES) + 1;
+
+    // Exibe o cabeçalho da simulação
+    printf("Simulacao para:\n");
+    printf("%d produtos\n", nproduto);
+    printf("%d clientes\n", ncliente);
+    printf("-----------------------------\n");
+    printf("Cliente   Produto   Valor (R$)\n");
+    printf("-----------------------------\n");
+
+    // Para cada cliente:
+    for (i = 0; i < ncliente; i++) {
+        compra[i] = random(nproduto);           // Cliente escolhe um produto aleatório
+        printf("%7d   %7d   %9.2f\n",            // Imprime cliente, produto e preço
+               i, compra[i], preco[compra[i]]);
+        total = total + preco[compra[i]];       // Soma o preço ao total de vendas
+    }
+
+    // Exibe a linha final da tabela
+    printf("-----------------------------\n");
+
+    // Mostra o total de vendas do dia
+    printf("TOTAL DE VENDAS   R$ %.2f\n", total);
+
+    return 0; // Fim do programa
+}

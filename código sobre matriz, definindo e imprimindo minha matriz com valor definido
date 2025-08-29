@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+int main()
+{   //matriz 3 x 3
+    int matriz[3] [3];
+    int linha , coluna;
+    //definindo minha matriz
+    for(linha = 0; linha < 3; linha++)
+    {
+        for(coluna = 0; coluna <3; coluna++)
+    
+    {
+        matriz[linha] [coluna] = linha*3 + coluna + 1;
+        
+    }
+    }
+    //imprimindo a matriz
+    for(linha = 0; linha <3; linha++)
+    {
+    for(coluna = 0; coluna <3; coluna++)
+    {printf("%d", matriz[linha][coluna]);
+
+    }
+        printf("\n");
+    }
+    return 0;
+}

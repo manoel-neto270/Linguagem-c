@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+int verificavogal (char M)
+{
+    if(M=='a' || M=='A' || M=='e' || M=='E' || M=='i' || M=='I' || M=='o' ||
+    M =='O' || M =='u' || M =='U')
+    return 1;
+    else
+    return 0;
+}
+main ()
+{
+    char nome[30];
+    int x, t;
+    printf("\nDigite um nome:");
+    gets(nome);
+    t=strlen(nome);
+    for(x=0; x<=t-1; x++)
+    if(verificavogal (nome[x]) ==1)
+    printf("\nA letra [%c] eh uma VOGAL:", nome[x]);
+    else
+    printf("\nA letra [%c] eh uma CONSTANTE:", nome[x]);
+    printf("\n\n");
+    system("pause");
+    return 0;
+    
+}

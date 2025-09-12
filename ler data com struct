@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct Data
+{
+    int dia;
+    int mes;
+    int ano;
+};
+int main()
+{
+    struct Data d;
+    printf("Digite a data (dia mes ano):");
+    scanf("%d %d %d", &d.dia, &d.mes, &d.ano);
+    printf("Data: %02d/%02d/%d\n", d.dia, d.mes, d.ano);
+    return 0;
+}

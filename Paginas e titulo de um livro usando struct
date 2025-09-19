@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct Livro
+{
+    char titulo[100];
+    int paginas;
+};
+
+int main()
+{
+    struct Livro l;
+    struct Livro *ptr = &l;
+    printf("Digite o título do livro:");
+    fgets(ptr->titulo, sizeof(ptr->titulo),stdin);
+    printf("Digite o número de páginas:");
+    scanf("%d", &ptr->paginas);
+    printf("Livro: %sPáginas: %d\n", ptr->titulo, ptr->paginas);
+
+    return 0;
+
+}

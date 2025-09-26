@@ -1,0 +1,176 @@
+//Trabalho feito por: Manoel Emerenciano Neto, Gabriel Maciel, Kauê de Oliveira
+//Finalizado no dia: 24/09/2025
+//Trabalho orientado por: Alessandro João Brassanini
+//Código feito para orientar os pneus de uma empresa de logistica, onde 
+//tem sua função para conferir os pneus e fazer o rodizio entre eles, podendo 
+//escolher entre caminhão trucado e toco. E podendo escolher a carreta.
+
+
+
+
+
+#include <stdio.h>
+#include <locale.h>
+#include <string.h>
+#include <stdlib.h> 
+//Sistema de login User:Uniavan Senha:Uniavan123
+int retornousuario(char user[], char password[]) {
+	if(strcmp(user, "Uniavan") == 0 && strcmp(password, "Uniavan123") == 0) {
+
+		return 0;
+	} else {
+		printf("Usuario ou senha invalidos, tente novamente!\n");
+		return 1;
+	}
+}
+
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+//Variaveis principais
+	char usuario[50], senha[50];
+	int retorno, caminhao, selecionar;
+	int pneus[12] = {0}; // valores iniciais
+	int qtdpneus = 0;
+	int pneusDigitados = 0; // flag para saber se jC! digitou os pneus
+	int continuar = 1;
+	int temp;
+
+	// Login
+	do {
+		printf("Digite seu usuario e sua senha:\n");
+		printf("Login:");
+		scanf("%s", usuario);
+		printf("Senha:");
+		scanf("%s",senha);
+		
+		retorno = retornousuario(usuario, senha);
+	} while(retorno == 1);
+
+	// Escolha do caminhão
+	printf("Qual veiculo gostaria de conferir?\n");
+	printf("1. Truck\n2. Toco\n3. Carreta\n0. Sair\n");
+	scanf("%d", &caminhao);
+
+	while(continuar) {
+		if(caminhao == 0) break;
+
+		// Menu principal
+		if(caminhao == 1) printf("\nTruck - Placa: ARJ3W04\n");
+		else if(caminhao == 2) printf("\nToco - Placa: WRC3J43\n");
+		else if(caminhao == 3) printf("\nCarreta - Placa: QOP0R90\n");
+
+		printf("O que deseja fazer?\n");
+		printf("1. Rodizio de pneus\n2. Conferir pneus\n0. Sair\n");
+		scanf("%d", &selecionar);
+
+		if(selecionar == 0) break;
+
+		// Determinar quantidade de pneus
+		if(caminhao == 1) qtdpneus = 10; // Truck
+		else if(caminhao == 2) qtdpneus = 6; // Toco
+		else if(caminhao == 3) qtdpneus = 12; // Carreta
+
+		// Conferir pneus
+		if(selecionar == 2) {
+			for(int i = 0; i < qtdpneus; i++) {
+				printf("Digite o valor do pneu %d: ", i+1);
+				scanf("%d", &pneus[i]);
+			}
+			pneusDigitados = 1;
+
+			// Mostrar pneus e legenda
+			
+			//Truck
+			if(caminhao == 1) {
+				printf("\nLegenda Truck:\nDianteiros: %dFE %dFD | Traseiros Eixo1: %dTEE1 %dTEI1  %dTDI1 %dTDE1 | Traseiros Eixo2: %dTEE2 %dTEI2  %dTDI2 %dTDE2\n", pneus[0], pneus[1], pneus[2], pneus[3], pneus[4], pneus[5],
+				       pneus[6], pneus[7], pneus[8], pneus[9]);
+			} 
+			
+			//Toco
+			else if(caminhao == 2) {
+				printf("\nLegenda Toco:\nDianteiros: %dFE %dFD | Traseiros: %dTEE %dTEI  %dTDI %dTDE \n",pneus[0], pneus[1], pneus[2], pneus[3], pneus[4], pneus[5]);
+			} 
+			
+			//Carreta
+			else if(caminhao == 3) {
+				printf("\nLegenda Carreta:\nDianteiros: %dFEE %dFEI  %dFDI %dFDE | Traseiros 1: %dTEE1 %dTEI1  %dTDI1 %dTDE1 | Traseiros 2: %dTEE2 %dTEI2  %dTDI2 %dTDE2\n",pneus[0], pneus[1], pneus[2], pneus[3], pneus[4], pneus[5],
+				       pneus[6], pneus[7], pneus[8], pneus[9], pneus[10], pneus[11] );
+
+
+			}
+		}
+
+		// Rodizio
+		else if(selecionar == 1) {
+			if(!pneusDigitados) {
+				printf("Erro: voce precisa conferir os pneus primeiro!\n");
+			} else {
+				if(caminhao == 1) { // Rodizio truck
+					temp = pneus[0];
+					pneus[0] = pneus[6];
+					pneus[6] = temp;
+					temp = pneus[1];
+					pneus[1] = pneus[7];
+					pneus[7] = temp;
+					temp = pneus[2];
+					pneus[2] = pneus[8];
+					pneus[8] = temp;
+					temp = pneus[3];
+					pneus[3] = pneus[9];
+					pneus[9] = temp;
+
+					printf("\nDepois do rodizio Truck:\n");
+					printf("Dianteiros: %dFE %dFD\n", pneus[0], pneus[1]);
+					printf("Traseiros Eixo1: %dTEE1 %dTEI1 %dTDI1 %dTDE1\n", pneus[2], pneus[3], pneus[4], pneus[5]);
+					printf("Traseiros Eixo2: %dTEE2 %dTEI2 %dTDI2 %dTDE2\n", pneus[6], pneus[7], pneus[8], pneus[9]);
+				} 
+          else if(caminhao == 2) { // Rodizio toco
+					temp = pneus[0];
+					pneus[0] = pneus[2];
+					pneus[2] = temp;
+					temp = pneus[1];
+					pneus[1] = pneus[4];
+					pneus[4] = temp;
+					temp = pneus[3];
+					pneus[3] = pneus[5];
+					pneus[5] = temp;
+
+					printf("\nDepois do rodizio Toco:\n");
+					printf("Dianteiros: %dFE %dFD\n", pneus[0], pneus[1]);
+					printf("Traseiros: %dTEE %dTEI %dTDI %dTDE\n", pneus[2], pneus[3], pneus[4], pneus[5]);
+				}
+				else if(caminhao == 3) { // Rodizio carreta
+					temp = pneus[0];
+					pneus[0] = pneus[4];
+					pneus[4] = temp;
+					temp = pneus[1];
+					pneus[1] = pneus[5];
+					pneus[5] = temp;
+					temp = pneus[2];
+					pneus[2] = pneus[6];
+					pneus[6] = temp;
+					temp = pneus[8];
+					pneus[8] = pneus[9];
+					pneus[9] = temp;
+					temp = pneus[10];
+					pneus[10] = pneus[11];
+					pneus[11] = temp;
+
+					printf("\nDepois do rodizio Carreta:\n");
+					printf("Dianteiros: %dFEE %dFEI  %dFDI %dFDE\n", pneus[0], pneus[1], pneus[2], pneus[3]);
+					printf("Traseiros 1: %dTEE1 %dTEI1 %dTDI1 %dTDE1\n", pneus[4], pneus[5], pneus[6], pneus[7]);
+					printf("Traseiros 2: %dTEE2 %dTEI2 %dTDI2 %dTDE2\n", pneus[8], pneus[9], pneus[10], pneus[11]);
+
+
+				}
+			}
+		}
+        //Limpar tela(para linux)
+		printf("\nDeseja voltar ao menu? (1 = sim / 0 = nao): ");
+		scanf("%d", &continuar);
+		if(continuar) system("clear");
+	}
+    //Encerramento do programa
+	printf("Programa encerrado.\n");
+	return 0;
+}

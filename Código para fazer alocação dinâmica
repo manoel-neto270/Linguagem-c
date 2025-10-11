@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main ()
+{
+    char *nome;
+    nome = (char*)malloc(20 * sizeof(char));
+    if(nome ==NULL)
+    {
+        printf("Erro de alocação!\n");
+        return 1;
+    }
+    sprintf(nome, "Alocacao dinamica");
+
+
+    printf("Nome: %c\n", *nome);
+    free(nome);
+    return 0;
+}

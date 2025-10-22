@@ -1,0 +1,98 @@
+/*
+-----------------------------------------------------------
+Exercício Proposto: Sistema de Estoque
+Linguagem: C padrão ANSI
+Objetivo:
+Praticar struct, typedef, matrizes e ponteiros.
+-----------------------------------------------------------
+
+Sugestões:
+
+Implementar uma busca por nome ou código.
+Criar uma função para atualizar o estoque (entrada/saída de produtos).
+Ordenar os produtos por nome ou valor total.
+Criar um menu interativo com switch.
+
+
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+#define MAX_PRODUTOS 5
+
+// Definir o tipo Produto
+typedef struct
+{
+    char nome [50];
+    int quantidade;
+    float preco;
+    float codigo;
+
+    // TODO: declarar os campos: nome, preço, quantidade, código
+} Produto;
+
+// Protótipos das funções
+void cadastrarProdutos(Produto *estoque, int qtd);
+float calcularValorTotal(Produto *estoque, int qtd);
+void mostrarEstoque(Produto *estoque, int qtd);
+
+int main() {
+    setlocale(LC_ALL, "Portuguese");
+    Produto estoque[MAX_PRODUTOS];
+    float total;
+
+    cadastrarProdutos(estoque, MAX_PRODUTOS);
+
+    total = calcularValorTotal(estoque, MAX_PRODUTOS);
+    mostrarEstoque(estoque, MAX_PRODUTOS);
+
+    printf("\nValor total do estoque: R$ %.2f\n", total);
+
+    return 0;
+}
+
+
+// Implementar as funções abaixo:
+
+void cadastrarProdutos(Produto *estoque, int qtd) {
+    for (int i = 0; i < qtd; i++) {
+        printf("\n=== Produto %d ===\n", i + 1);
+
+        printf("Nome: ");
+        fgets(estoque[i].nome, sizeof(estoque[i].nome), stdin);
+
+        printf("Código: ");
+        scanf("%d", &estoque[i].codigo);
+
+        printf("Preço: R$ ");
+        scanf("%f", &estoque[i].preco);
+
+        printf("Quantidade: ");
+        scanf("%d", &estoque[i].quantidade);
+
+        getchar(); // limpa o buffer
+    }
+}
+
+
+float calcularValorTotal(Produto *estoque, int qtd) {
+    float total = 0.0;
+    for (int i = 0; i < qtd; i++) {
+        total += estoque[i].preco * estoque[i].quantidade;
+    }
+    return total;
+}
+
+void mostrarEstoque(Produto *estoque, int qtd) {
+    printf("\n=== Estoque Atual ===\n");
+    for (int i = 0; i < qtd; i++) {
+        printf("Produto %d:\n", i + 1);
+        printf("Nome: %s", estoque[i].nome);
+        printf("Código: %d\n", estoque[i].codigo);
+        printf("Preço: R$ %.2f\n", estoque[i].preco);
+        printf("Quantidade: %d\n\n", estoque[i].quantidade);
+    }
+}
+

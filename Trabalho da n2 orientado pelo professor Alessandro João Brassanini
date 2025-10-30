@@ -1,0 +1,206 @@
+//Codigo feito por: Alessadro João Brassanini
+//Alterado por: Manoel Emerenciano Neto
+//Data da alteração: 29/10/2025
+//GCC:25.03
+
+/*
+Uso de matriz bidimensional (10x10) para armazenar o cenário.
+Laços de repetição para imprimir o labirinto a cada rodada.
+Condicionais para validar os movimentos e impedir atravessar paredes.
+Leitura de teclado com scanf para capturar as direções.
+Verificação de vitória quando o jogador chega na saída.
+
+Beep(frequencia, duracao) - frequência em Hertz (Hz) e duração em milissegundos (ms).
+Valores típicos de frequência:
+300 Hz - som ainda mais grave
+400 Hz - som grave
+750 Hz - som médio
+1000 a 2000 Hz - som agudo (usado para vitória)
+
+Movimento válido - som curto e médio.
+Batida na parede - som grave mais longo.
+Chegada na saída - som agudo de comemoração.
+
+
+Regras:
+
+P - posição atual do jogador.
+0 - caminho livre.
+1 - parede (não pode atravessar).
+S - saída (objetivo do jogo).
+
+*/
+
+#include <stdio.h>    // Para printf e scanf
+#include <stdlib.h>   // Para system (limpar tela)
+#include <ctype.h>    // Para toupper (converter comandos)
+#include <windows.h>  // Para Beep()
+#define VERMELHO "\x1b[31m" //cor vermelha
+#define AZUL "\x1b[34m"    //cor azul
+#define AMARELO "\x1b[33m" //cor amarela
+#define VERDE "\x1b[32m" //cor verde
+#define ROXO "\x1b[35m"
+#define RESET "\x1b[0m"  //Resetar cor
+#define N 10 // Tamanho da matriz do labirinto
+
+//void para mostrar o labirinto
+void mostrarLabirinto(int labirinto[N][N],int x, int y){
+ int i, j;
+        for (i = 0; i < N; i++)
+        {
+            for (j = 0; j < N; j++)
+            {
+                if (i == x && j == y)
+                {
+                    printf(AZUL "J " RESET); // Jogador
+                }
+                else if (labirinto[i][j] == 1)
+                {
+                    printf(AMARELO "W " RESET); // Parede
+                }
+                else if (labirinto[i][j] == -1)
+                {
+                    printf(VERDE "-> " RESET); // Saída
+                }
+                else if (labirinto [i][j] == 2) // Armadilha
+                {
+                    printf(VERMELHO "||" RESET);
+
+                }
+                else
+                {
+                    printf(ROXO ". " RESET); // Caminho livre
+                }
+            }
+            printf("\n");
+        }
+}
+
+//void para mostra em que linha e em que coluna o player esta
+void mostrarLinha_mostrarColuna(int linha, int coluna){
+    printf("Posicao atual. Linha: %d || Coluna: %d", linha, coluna);
+
+}
+
+int main()
+{
+    // Matriz do labirinto: 0 = caminho, 1 = parede, -1 = saída
+    int labirinto[N][N] =
+    {
+        {0, 2, 0, 0, 0, 1, 0, 0 ,2 ,0},
+        {0, 0, 0, 2, 0, 0, 1, 2, 0 ,1},
+        {0, 0, 0, 1, 0, 0, 0, 1, 0, 0},
+        {0, 2, 0, 1, 0, 1, 0, 0, 0 ,2},
+        {0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
+        {0, 2, 0, 0, 1, 0 ,0 ,0, 1, 1},
+        {1, 1, 1, 0, 1, 0, 0, 2, 1, 1},
+        {1, 1, 0, 0, 1, 2, 0, 1, 0, 2},
+        {1, 2, 1, 0, 0, 1 ,0, 2, 0 ,1},
+        {1, 1, 2 , 0, 2, 1,0, 0, 0, -1},
+    };
+
+    int x = 0, y = 0;      // Posição inicial do jogador
+    char comando;          // Entrada do usuário
+    int jogando = 1;// Controle do loop do jogo
+    int passos = 0; //Variavel para contar passos
+    int pontos = 0;
+
+    while (jogando)
+    {
+        system("cls"); // Limpa a tela no Windows
+
+        // Mostra o labirinto
+        printf("Jogo do Labirinto 10x10 com Som\n");
+        printf("Use W (cima), S (baixo), A (esquerda), D (direita)\n");
+        printf("Objetivo: chegar na saida (->)\n\n");
+        printf("Passos = %d\n\n", passos);
+
+   //chama função void mostrarLabirinto
+        mostrarLabirinto(labirinto, x, y);
+
+
+        //Chamando a função void mostrarLinha_mostrarColuna
+        mostrarLinha_mostrarColuna(x, y);
+
+        // Verifica se o jogador chegou a saída
+        if (labirinto[x][y] == -1)
+        {
+            printf("\nParabens! Voce encontrou a saida!\n");
+            // Som de vitória: frequência alta
+            Beep(1000, 300);
+            Beep(1500, 300);
+            Beep(2000, 500);
+            break;
+        }
+
+        // Entrada de movimento
+        printf("\nDigite seu movimento (W/A/S/D): ");
+        scanf(" %c", &comando);
+        comando = toupper(comando); // Normaliza para maiúscula
+
+        int novoX = x;
+        int novoY = y;
+        passos ++;
+
+        if (comando == 'W')
+        {
+            novoX--;
+        }
+        else if (comando == 'S')
+        {
+            novoX++;
+        }
+        else if (comando == 'A')
+        {
+            novoY--;
+        }
+        else if (comando == 'D')
+        {
+            novoY++;
+        }
+        else
+        {
+            printf("Comando invalido!\n");
+        }
+
+        // 1) Verifica limites
+        if (novoX < 0 || novoX >= N || novoY < 0 || novoY >= N)
+        {
+            printf("Movimento invalido! Fora dos limites!\n");
+            Beep(400, 300);
+
+            continue;
+        }
+
+        //3) Verifica se é parede
+        if(labirinto[novoX] [novoY] == 1)
+        {
+            printf("Parede, tome cuidado!!!");
+            Beep(400, 300);
+            pontos -= 1;
+            continue;
+        }
+        // 2) Verifica se é armadilha
+        if (labirinto[novoX][novoY] == 2)
+        {
+            printf("Armadilha! Voltando para o comeco!!\n");
+            Beep(300, 400);
+            // Volta para o início sem criar variáveis novas
+            x = 0;
+            y = 0;
+
+            continue;
+        }
+         // 4) Movimento válido (caminho livre ou saída)
+        x = novoX;
+        y = novoY;
+        pontos += 10;
+        Beep(750, 100);
+    }
+    system("CLS");
+    printf(VERDE "\nParabens voce completou o jogo. Quantidade de passos: %d " RESET, passos);
+    printf(AMARELO "\nPontuacao final: %d" RESET, pontos);
+
+    return 0;
+}
+

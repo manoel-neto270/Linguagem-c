@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+struct Venda
+{
+    char produto [50];
+    int quantidade;
+    float valorUnitario;
+};
+int main()
+{
+    setlocale(LC_ALL, "Portuguese");
+    struct Venda *vendas;
+    int n, i;
+    float totalGeral = 0;
+    printf("Quantos produtos foram vendidos?");
+    scanf("%d", &n);
+    vendas = (struct Venda *)malloc(n * sizeof(struct Venda));
+
+    if(vendas == NULL)
+    {
+        printf("Erro ao alocar memoria");
+        return 1;
+    }
+    for(i = 0; i< n; i++){
+        printf("\nProduto %d: ", i + 1);
+        scanf("%[^\n", vendas [i].produto);
+        printf("Quantidade vendida: ");
+        scanf("%d", &vendas[i].quantidade);
+        printf("Valor unitario: ");
+        scanf("%f", &vendas[i].valorUnitario);
+    }
+    printf("\nResumo das vendas:\n");
+    for(i = 0; i < n; i++){
+        float totalProduto = vendas[i].quantidade *
+        vendas[i].valorUnitario;
+        printf("%s - Total: R$ %.2f\n", vendas[i].produto,
+               totalProduto);
+               totalGeral += totalProduto;
+    }
+    printf("\nTotal geral das vendas: R$ %.2f\n", totalGeral);
+    free(vendas);
+    return 0;
+}
